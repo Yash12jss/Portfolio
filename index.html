@@ -1,0 +1,340 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Yash Singhal — Computer Science student, aspiring Software Development Engineer, and AI enthusiast.">
+  <meta name="theme-color" content="#090d18">
+  <title>Yash Singhal | Software Developer</title>
+  <style>
+    :root {
+      --bg: #090d18;
+      --panel: #111827;
+      --panel2: #151f31;
+      --text: #edf2ff;
+      --muted: #a1aec4;
+      --accent: #73a7ff;
+      --accent2: #9d8cff;
+      --line: rgba(255,255,255,.10);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, sans-serif;
+      line-height: 1.7;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1100px, 90%); margin: auto; }
+    header {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(9,13,24,.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+    nav {
+      min-height: 70px; display: flex; align-items: center;
+      justify-content: space-between; gap: 20px;
+    }
+    .logo { font-size: 1.2rem; font-weight: 800; letter-spacing: -.5px; }
+    .logo span { color: var(--accent); }
+    .navlinks { display: flex; gap: 24px; list-style: none; }
+    .navlinks a { color: var(--muted); font-size: .9rem; }
+    .navlinks a:hover { color: var(--accent); }
+    .hero {
+      min-height: 650px; display: grid; align-items: center;
+      padding: 95px 0 80px;
+      background:
+        radial-gradient(ellipse at 80% 20%, rgba(115,167,255,.15), transparent 38%),
+        radial-gradient(ellipse at 10% 90%, rgba(157,140,255,.10), transparent 35%);
+    }
+    .eyebrow {
+      color: var(--accent); text-transform: uppercase;
+      letter-spacing: 2px; font-size: .78rem; font-weight: 700;
+    }
+    h1 {
+      font-size: clamp(3rem, 8vw, 5.8rem);
+      line-height: 1.05; letter-spacing: -4px; margin: 18px 0;
+    }
+    h1 span {
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .hero p { max-width: 650px; color: var(--muted); font-size: 1.12rem; }
+    .actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 30px; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 12px 20px; border-radius: 9px; font-weight: 700;
+      border: 1px solid var(--line); transition: .2s;
+    }
+    .btn.primary { background: var(--accent); color: #07101e; border-color: var(--accent); }
+    .btn:hover { transform: translateY(-3px); }
+    section { padding: 82px 0; }
+    .section-title { font-size: 2rem; letter-spacing: -1px; margin-bottom: 10px; }
+    .section-sub { color: var(--muted); margin-bottom: 32px; }
+    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .card {
+      background: linear-gradient(145deg, var(--panel), #0e1523);
+      border: 1px solid var(--line); border-radius: 16px;
+      padding: 25px; transition: .25s;
+    }
+    .card:hover { transform: translateY(-5px); border-color: rgba(115,167,255,.5); }
+    .card h3 { font-size: 1.18rem; margin-bottom: 9px; }
+    .card p, .card li { color: var(--muted); font-size: .95rem; }
+    .card ul { padding-left: 20px; margin-top: 10px; }
+    .taglist { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 18px; }
+    .tag {
+      background: rgba(115,167,255,.10); color: #b9d2ff;
+      border: 1px solid rgba(115,167,255,.18);
+      padding: 5px 11px; border-radius: 30px; font-size: .8rem;
+    }
+    .timeline { border-left: 2px solid rgba(115,167,255,.4); padding-left: 25px; }
+    .timeline .card { margin-bottom: 18px; }
+    .date { color: var(--accent); font-size: .82rem; font-weight: 700; margin-bottom: 7px; }
+    .skill-group { margin-bottom: 18px; }
+    .skill-group h3 { margin-bottom: 10px; font-size: 1rem; }
+    .cert-link { color: var(--accent); font-size: .9rem; display: inline-block; margin: 8px 14px 0 0; }
+    .contact { text-align: center; }
+    .contact .card { max-width: 700px; margin: auto; }
+    footer {
+      border-top: 1px solid var(--line); padding: 25px 0;
+      color: var(--muted); text-align: center; font-size: .85rem;
+    }
+    .socials { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 22px; }
+    @media(max-width:700px) {
+      .navlinks { gap: 12px; font-size: .8rem; }
+      .navlinks li:nth-child(2), .navlinks li:nth-child(4) { display: none; }
+      .grid { grid-template-columns: 1fr; }
+      h1 { letter-spacing: -2px; }
+      section { padding: 60px 0; }
+      .hero { min-height: 570px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="container">
+      <a class="logo" href="#home">YASH<span>.</span></a>
+      <ul class="navlinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="eyebrow">Computer Science & Engineering · Data Science</div>
+        <h1>Hi, I'm Yash<br><span>Singhal.</span></h1>
+        <p>
+          A Computer Science student at JSS Academy of Technical Education,
+          exploring software development, problem-solving and artificial intelligence.
+          Building my skills one project at a time.
+        </p>
+        <div class="actions">
+          <a class="btn primary" href="#projects">Explore my work ↗</a>
+          <a class="btn" href="mailto:yashsinghaljss@gmail.com">Get in touch</a>
+        </div>
+        <div class="socials" style="justify-content:flex-start">
+          <a class="cert-link" href="https://github.com/Yash12jss" target="_blank" rel="noreferrer">GitHub ↗</a>
+          <a class="cert-link" href="https://www.linkedin.com/in/yash-singhal-b286b6338" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <p class="section-sub">A little about my journey and what I enjoy building.</p>
+        <div class="card">
+          <p>
+            I'm pursuing a B.Tech in Computer Science and Engineering
+            (Data Science) at JSS Academy of Technical Education, Noida.
+            I have an interest in software engineering, data structures,
+            object-oriented programming and AI-based applications.
+          </p>
+          <p style="margin-top:14px">
+            Through academic projects, technical learning and student-society
+            activities, I'm working to strengthen my development skills,
+            communication and ability to collaborate with others.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <h2 class="section-title">Technical Skills</h2>
+        <p class="section-sub">Technologies and concepts I've studied or worked with.</p>
+        <div class="grid">
+          <div class="card skill-group">
+            <h3>Programming Languages</h3>
+            <div class="taglist">
+              <span class="tag">Python</span><span class="tag">C</span>
+              <span class="tag">C++</span><span class="tag">Java</span>
+              <span class="tag">R</span>
+            </div>
+          </div>
+          <div class="card skill-group">
+            <h3>Computer Science</h3>
+            <div class="taglist">
+              <span class="tag">Data Structures</span><span class="tag">OOP</span>
+              <span class="tag">DAA</span><span class="tag">Problem Solving</span>
+            </div>
+          </div>
+          <div class="card skill-group">
+            <h3>AI & Data</h3>
+            <div class="taglist">
+              <span class="tag">Artificial Intelligence</span>
+              <span class="tag">Retrieval-Augmented Generation</span>
+              <span class="tag">Chatbots</span><span class="tag">R Data Frames</span>
+            </div>
+          </div>
+          <div class="card skill-group">
+            <h3>Professional Skills</h3>
+            <div class="taglist">
+              <span class="tag">Communication</span><span class="tag">Teamwork</span>
+              <span class="tag">Public Speaking</span><span class="tag">Collaboration</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <h2 class="section-title">Featured Project</h2>
+        <p class="section-sub">Academic work and practical learning.</p>
+        <div class="card">
+          <div class="eyebrow">Academic Mini Project</div>
+          <h3 style="font-size:1.5rem;margin-top:8px">RAG Offline Chatbot</h3>
+          <p>
+            Contributed to an academic project exploring an offline chatbot
+            using the Retrieval-Augmented Generation (RAG) approach.
+            The project focused on retrieving relevant information to support
+            responses, along with development collaboration and project documentation.
+          </p>
+          <div class="taglist">
+            <span class="tag">RAG</span><span class="tag">Chatbot</span>
+            <span class="tag">Artificial Intelligence</span><span class="tag">Academic Project</span>
+          </div>
+          <p style="margin-top:18px;font-size:.85rem">
+            Project repository/demo link can be added once the public project URL is available.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <h2 class="section-title">Experience & Leadership</h2>
+        <p class="section-sub">Learning, contributing and working with people.</p>
+        <div class="timeline">
+          <div class="card">
+            <div class="date">DEC 2024 – FEB 2025</div>
+            <h3>Artificial Intelligence Intern</h3>
+            <p><strong>E-Cell, IIT Madras / Coincent.ai</strong> · Remote</p>
+            <ul>
+              <li>Completed an AI with Python internship-based learning programme.</li>
+              <li>Developed foundational understanding of artificial intelligence concepts and Python-based learning activities.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="date">DEC 2024 – PRESENT</div>
+            <h3>Executive Member · Impetus Student Society</h3>
+            <p>JSS Academy of Technical Education, Noida</p>
+            <ul>
+              <li>Contribute to student-society activities and student development initiatives.</li>
+              <li>Engage with events and activities involving communication, teamwork and coordination.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <div class="date">STUDENT MEMBER</div>
+            <h3>ROBOIQ</h3>
+            <p>Participation in a technical student community.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <h2 class="section-title">Education</h2>
+        <div class="card">
+          <div class="date">2024 – 2028</div>
+          <h3>Bachelor of Technology · Computer Science & Engineering (Data Science)</h3>
+          <p>JSS Academy of Technical Education, Noida, Uttar Pradesh</p>
+          <p style="margin-top:10px">Currently pursuing third year.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="certifications">
+      <div class="container">
+        <h2 class="section-title">Certifications</h2>
+        <p class="section-sub">Courses and credentials.</p>
+        <div class="grid">
+          <div class="card">
+            <h3>Build Your Own Chatbot – Level 1</h3>
+            <p>IBM</p>
+            <p class="date" style="margin-top:8px">Credential ID: 12e0ba7b8dc74aa48282aa8968da375f</p>
+            <a class="cert-link" href="https://lnkd.in/dk57z8eT" target="_blank" rel="noreferrer">Certificate ↗</a>
+            <a class="cert-link" href="https://lnkd.in/dj2rtYMG" target="_blank" rel="noreferrer">Digital badge ↗</a>
+          </div>
+          <div class="card">
+            <h3>Artificial Intelligence with Python</h3>
+            <p>Coincent.ai · March 2025</p>
+          </div>
+          <div class="card">
+            <h3>C++ – OOP and Data Structures</h3>
+            <p>Profound Classes · August 2024</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="interests">
+      <div class="container">
+        <h2 class="section-title">Beyond Coding</h2>
+        <p class="section-sub">Interests that help me grow outside the classroom.</p>
+        <div class="taglist">
+          <span class="tag">Public Speaking</span>
+          <span class="tag">Debates</span>
+          <span class="tag">Basketball</span>
+          <span class="tag">Student Events</span>
+          <span class="tag">Team Activities</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="container">
+        <h2 class="section-title">Let's Connect</h2>
+        <p class="section-sub">Interested in software development opportunities, collaboration or a conversation?</p>
+        <div class="card">
+          <h3>Yash Singhal</h3>
+          <p>Noida, India</p>
+          <div class="actions" style="justify-content:center">
+            <a class="btn primary" href="mailto:yashsinghaljss@gmail.com">Email me</a>
+            <a class="btn" href="https://www.linkedin.com/in/yash-singhal-b286b6338" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a class="btn" href="https://github.com/Yash12jss" target="_blank" rel="noreferrer">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© <span id="year"></span> Yash Singhal. Built with curiosity and code.</div>
+  </footer>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
